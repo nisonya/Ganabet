@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ import java.util.List;
 public class StopwatchFragment extends Fragment {
     public static EditText edMin, edSec;
     Button btn, btnend;
+    ProgressBar pb;
     public CountDownTimer myTimer;
 
     public StopwatchFragment() {
@@ -44,6 +46,8 @@ public class StopwatchFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        pb = view.findViewById(R.id.circularProgressIndicator);
+        pb.setVisibility(View.VISIBLE);
         btn = view.findViewById(R.id.buttonStart);
         btnend= view.findViewById(R.id.buttonEnd);
         edMin = view.findViewById(R.id.editTextMinuts);
@@ -51,14 +55,22 @@ public class StopwatchFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String timemin = edMin.getText().toString();
                 String timesec = edSec.getText().toString();
+
                 if((timesec.equals("")&&(timemin.equals("")))||(timesec.equals("0")&&(timemin.equals("0")))||(timesec.equals("")&&(timemin.equals("0")))
                 ||(timesec.equals("0")&&(timemin.equals("")))){
                     Toast.makeText(getActivity(), "Put Value", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Long seconds = Long.parseLong(timemin)*60+Long.parseLong(timesec);
+                    int prog = seconds.intValue();
+                    pb.setVisibility(View.VISIBLE);
+
+                    //pb.setProgress(1);
+                    pb.setMax(prog);
+                    //setProgressValue(1,prog);
                     timerCountDown(seconds);
                     edMin.setEnabled(false);
                     edSec.setEnabled(false);
@@ -69,6 +81,7 @@ public class StopwatchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 myTimer.cancel();
+                pb.setMax(0);
                 edMin.setText("0");
                 edSec.setText("00");
                 edMin.setEnabled(true);
@@ -83,6 +96,8 @@ public class StopwatchFragment extends Fragment {
         myTimer = new CountDownTimer(time*1000, 1000) {
             @Override
             public void onTick(long l) {
+                int now = (int) l/1000;
+                pb.setProgress(now);
                 Long min = (l / 60000);
                 Long sec = ((l % 60000) / 1000);
                 edMin.setText(Long.toString(min));
@@ -116,6 +131,23 @@ public class StopwatchFragment extends Fragment {
             }
         };
         myTimer.start();
+    }
+    public void setProgressValue(int progress, int max){
+        pb.setProgress(progress);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(pb.getProgress()>= max){
+
+                }else  setProgressValue(progress+1, max);
+
+            }
+        });
     }
 
 }
