@@ -2,6 +2,9 @@ package ganabet.sporttime;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,7 +19,9 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,12 +33,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import ganabet.sporttime.databinding.ActivityMain2Binding;
 import ganabet.sporttime.databinding.ActivityMainBinding;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    ActivityMainBinding binding;
-    TextView txt;
+    ActivityMain2Binding binding;
     RecyclerView musclesList, exersiseList;
     private static final String FILE_NAME="MY_FILE_NAME";
     private static final String URL_STRING="URL_STRING";
@@ -176,8 +181,29 @@ public class MainActivity2 extends AppCompatActivity {
     }
     //вызыв зваглушки
     public void plug(){
+        binding = ActivityMain2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment fragment = new StopwatchFragment();;
+            switch (item.getItemId()) {
+                case R.id.stopwatch:
+                    fragment = new StopwatchFragment();
+                    break;
+                case R.id.new_training:
+                    fragment = new NewTrainingFragment();
+                    break;
+                case R.id.history:
+                    fragment = new HistoryFragment();
+                    break;
+            }
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentCV, fragment);
+            fragmentTransaction.commit();
 
+            return true;
+        });
     }
     //сохранение ссылки локально
     public void saveToSP(){
@@ -186,4 +212,18 @@ public class MainActivity2 extends AppCompatActivity {
         ed.apply();
         browse(url_FB);
     }
+
+    /*public void startTimer(View view) {
+        String time = StopwatchFragment.timertext.getText().toString();
+        if(time.equals("")){
+            System.out.println("Put value");
+            Toast.makeText(this, "Put Value", Toast.LENGTH_SHORT).show();
+        }
+        else{
+
+            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+            System.out.println("else");
+        }
+        System.out.println("time "+time);
+    }*/
 }

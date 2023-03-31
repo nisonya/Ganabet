@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/stopwatch"
+        android:fontFamily="@font/roboto_slab"
+        android:icon="@drawable/ic_baseline_timer_24"
+        android:title="Timer" />
+    <item android:title="New training"
+        android:icon="@drawable/ic_baseline_create_24"
+        android:id="@+id/new_training"
+        android:fontFamily="@font/roboto_slab"/>
+    <item android:title="History"
+        android:icon="@drawable/ic_baseline_history_24"
+        android:id="@+id/history"
+        android:fontFamily="@font/roboto_slab"/>
+</menu>

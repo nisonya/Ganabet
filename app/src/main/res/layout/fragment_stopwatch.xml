@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StopwatchFragment">
+
+    <Button
+        android:id="@+id/buttonStart2"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="76dp"
+        android:background="@color/purple_200"
+        android:text="END"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/circularProgressIndicator"
+        android:layout_width="93dp"
+        android:layout_height="97dp"
+        android:visibility="invisible"
+        app:indicatorColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631" />
+
+    <EditText
+        android:id="@+id/editTextSeconds"
+        android:layout_width="99dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="308dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="0"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextMinuts"
+        android:layout_width="99dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="308dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="0"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:onClick="startTimer"
+        android:layout_width="143dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="152dp"
+        android:text="START"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="409dp"
+        android:layout_height="71dp"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.051">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1:00"
+            app:chipStrokeColor="@color/grey"
+            app:chipStrokeWidth="3dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip030"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:30"
+            app:chipStrokeColor="@color/grey"
+            app:chipStrokeWidth="3dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip130"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1:30"
+            app:chipStrokeColor="@color/grey"
+            app:chipStrokeWidth="3dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5:00"
+            app:chipStrokeColor="@color/grey"
+            app:chipStrokeWidth="3dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip200"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2:00"
+            app:chipStrokeColor="@color/grey"
+            app:chipStrokeWidth="3dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip230"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2:30"
+            app:chipStrokeColor="@color/grey"
+            app:chipStrokeWidth="3dp" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:textSize="24sp"
+        android:text="Timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="minutes"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMinuts"
+        app:layout_constraintStart_toStartOf="@+id/editTextMinuts" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="28dp"
+        android:text="seconds"
+        app:layout_constraintBottom_toTopOf="@+id/editTextSeconds"
+        app:layout_constraintStart_toStartOf="@+id/editTextSeconds" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
