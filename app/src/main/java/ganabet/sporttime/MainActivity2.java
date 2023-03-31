@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.chip.Chip;
 import com.google.firebase.BuildConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
@@ -213,17 +214,13 @@ public class MainActivity2 extends AppCompatActivity {
         browse(url_FB);
     }
 
-    /*public void startTimer(View view) {
-        String time = StopwatchFragment.timertext.getText().toString();
-        if(time.equals("")){
-            System.out.println("Put value");
-            Toast.makeText(this, "Put Value", Toast.LENGTH_SHORT).show();
-        }
-        else{
-
-            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
-            System.out.println("else");
-        }
-        System.out.println("time "+time);
-    }*/
+    public void chipclicked(View view) {
+        String selectedText ="";
+        if (view instanceof Chip) {
+            selectedText = ((Chip) view).getText().toString();}
+        String[] values = selectedText.split(":");
+        StopwatchFragment.edMin.setText(values[0]);
+        StopwatchFragment.edSec.setText(values[1]);
+        System.out.println("chip");
+    }
 }

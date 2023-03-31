@@ -7,7 +7,7 @@
     tools:context=".StopwatchFragment">
 
     <Button
-        android:id="@+id/buttonStart2"
+        android:id="@+id/buttonEnd"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginBottom="76dp"
@@ -39,7 +39,7 @@
         android:layout_marginTop="308dp"
         android:ems="10"
         android:inputType="time"
-        android:text="0"
+        android:text="00"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.756"
@@ -73,20 +73,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.chip.ChipGroup
-        android:layout_width="409dp"
-        android:layout_height="71dp"
+        android:id="@+id/chipgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
         android:gravity="center"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
+        app:chipSpacingHorizontal="60dp"
         app:layout_constraintBottom_toTopOf="@+id/circularProgressIndicator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.051">
+        app:layout_constraintVertical_bias="0.063">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip100"
+            android:onClick="chipclicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1:00"
@@ -95,6 +98,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip030"
+            android:onClick="chipclicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0:30"
@@ -103,6 +107,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip130"
+            android:onClick="chipclicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1:30"
@@ -111,6 +116,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip500"
+            android:onClick="chipclicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5:00"
@@ -119,6 +125,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip200"
+            android:onClick="chipclicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2:00"
@@ -127,6 +134,7 @@
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip230"
+            android:onClick="chipclicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2:30"
@@ -153,16 +161,17 @@
         android:layout_marginBottom="28dp"
         android:text="minutes"
         app:layout_constraintBottom_toTopOf="@+id/editTextMinuts"
+        app:layout_constraintEnd_toEndOf="@+id/editTextMinuts"
         app:layout_constraintStart_toStartOf="@+id/editTextMinuts" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:layout_marginBottom="28dp"
         android:text="seconds"
         app:layout_constraintBottom_toTopOf="@+id/editTextSeconds"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSeconds"
         app:layout_constraintStart_toStartOf="@+id/editTextSeconds" />
 
 

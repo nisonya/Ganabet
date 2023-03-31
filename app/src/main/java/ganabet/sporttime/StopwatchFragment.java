@@ -20,12 +20,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+
+import java.util.List;
+
 
 public class StopwatchFragment extends Fragment {
-    public EditText edMin, edSec;
-    Button btn;
+    public static EditText edMin, edSec;
+    Button btn, btnend;
     public CountDownTimer myTimer;
-    int strat_time = 10000;
 
     public StopwatchFragment() {
             super(R.layout.fragment_stopwatch);
@@ -41,9 +45,9 @@ public class StopwatchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         btn = view.findViewById(R.id.buttonStart);
+        btnend= view.findViewById(R.id.buttonEnd);
         edMin = view.findViewById(R.id.editTextMinuts);
         edSec = view.findViewById(R.id.editTextSeconds);
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,14 +58,27 @@ public class StopwatchFragment extends Fragment {
                     Toast.makeText(getActivity(), "Put Value", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    System.out.println("start");
                     Long seconds = Long.parseLong(timemin)*60+Long.parseLong(timesec);
                     timerCountDown(seconds);
+                    edMin.setEnabled(false);
+                    edSec.setEnabled(false);
                 }
+            }
+        });
+        btnend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myTimer.cancel();
+                edMin.setText("0");
+                edSec.setText("00");
+                edMin.setEnabled(true);
+                edSec.setEnabled(true);
             }
         });
     }
 
+
+    //таймер
     public void timerCountDown(Long time){
         myTimer = new CountDownTimer(time*1000, 1000) {
             @Override
@@ -70,16 +87,17 @@ public class StopwatchFragment extends Fragment {
                 Long sec = ((l % 60000) / 1000);
                 edMin.setText(Long.toString(min));
                 edSec.setText(Long.toString(sec));
-                System.out.println("going");
             }
 
             @Override
             public void onFinish() {
                 edMin.setText("0");
-                edSec.setText("0");
+                edSec.setText("00");
+                edMin.setEnabled(true);
+                edSec.setEnabled(true);
+                //открытие диалогового окна
                 Dialog dialog = new Dialog(getActivity());
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                // Передайте ссылку на разметку
                 dialog.setContentView(R.layout.timer_out);
                 dialog.setCancelable(false);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
