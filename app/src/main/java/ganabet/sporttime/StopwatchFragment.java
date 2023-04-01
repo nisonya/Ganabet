@@ -67,7 +67,6 @@ public class StopwatchFragment extends Fragment {
                     Long seconds = Long.parseLong(timemin)*60+Long.parseLong(timesec);
                     int prog = seconds.intValue();
                     pb.setVisibility(View.VISIBLE);
-
                     //pb.setProgress(1);
                     pb.setMax(prog);
                     //setProgressValue(1,prog);
@@ -131,23 +130,6 @@ public class StopwatchFragment extends Fragment {
             }
         };
         myTimer.start();
-    }
-    public void setProgressValue(int progress, int max){
-        pb.setProgress(progress);
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                if(pb.getProgress()>= max){
-
-                }else  setProgressValue(progress+1, max);
-
-            }
-        });
     }
 
 }
