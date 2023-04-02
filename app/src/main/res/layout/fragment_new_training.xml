@@ -17,7 +17,7 @@
         <include
             layout="@layout/front_layout"
             android:layout_width="match_parent"
-            android:layout_height="660dp"
+            android:layout_height="582dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="-2dp" />
     </RelativeLayout>

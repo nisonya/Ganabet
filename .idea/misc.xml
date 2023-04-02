@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/drawable/ic_baseline_arrow_downward_24.xml" value="0.202" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/drawable/ic_baseline_timer_24.xml" value="0.1795" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/drawable/layout_bg.xml" value="0.2255" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/drawable/progressDrawable.xml" value="0.1795" />
@@ -12,9 +13,9 @@
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/activity_main3.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/back_layout.xml" value="0.253125" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/fragment_history.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/fragment_new_training.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/fragment_new_training.xml" value="0.264" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/fragment_stopwatch.xml" value="0.264" />
-        <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/front_layout.xml" value="0.176" />
+        <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/front_layout.xml" value="0.2" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/layout_bg.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/layout/timer_out.xml" value="0.4" />
         <entry key="..\:/Users/USER/Desktop/Ganabet/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
