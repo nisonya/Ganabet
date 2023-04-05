@@ -23,7 +23,7 @@
         android:layout_marginTop="68dp"
         android:fontFamily="@font/roboto_slab"
         android:gravity="center"
-        android:shadowColor="@color/purple_200"
+        android:shadowColor="@color/black"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="6"

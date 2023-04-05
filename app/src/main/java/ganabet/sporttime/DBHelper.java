@@ -18,6 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public final static String KEY_ID="_id";
     public final static String KEY_TRAINING_ID="training_id";
     public final static String KEY_NAME_EXERSISE="name_exersise";
+    public final static String KEY_MUSCLE_PIC="muscle_pic";
     public final static String KEY_SETS="sets";
     public final static String KEY_REPS="reps";
     public final static String KEY_DATE="trining_date";
@@ -35,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //создаем таблицу
         db.execSQL("create table if not exists "+ TABLE_NAME + "("
                 + KEY_ID+" integer primary key autoincrement, "+KEY_TRAINING_ID +" integer, "
-                +KEY_NAME_EXERSISE+" text, "+KEY_SETS+" integer, "+KEY_REPS+" integer, "+KEY_DATE+" text"+")");
+                +KEY_NAME_EXERSISE+" text, "+KEY_MUSCLE_PIC+" integer,"+KEY_SETS+" integer, "+KEY_REPS+" integer, "+KEY_DATE+" text"+")");
 
         Log.d("mLog","Created");
 
@@ -46,5 +47,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("drop table if exists "+TABLE_NAME);
         onCreate(db);
+    }
+    public void insert(){
+
     }
 }
