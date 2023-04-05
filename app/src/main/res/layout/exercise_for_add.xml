@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="175dp"
     android:layout_marginLeft="10sp"
     android:layout_marginTop="5sp"
     android:layout_marginRight="10sp"
@@ -33,7 +33,7 @@
             <TextView
                 android:id="@+id/tvExerName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="@color/black"
@@ -80,7 +80,6 @@
                     android:layout_marginRight="10dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-
                     android:layout_marginTop="8dp"
                     android:backgroundTint="@color/white"
                     app:cardCornerRadius="20dp">

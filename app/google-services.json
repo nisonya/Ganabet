@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "642652388867",
-    "project_id": "ganabet-2fd5c",
-    "storage_bucket": "ganabet-2fd5c.appspot.com"
+    "project_number": "98331389428",
+    "project_id": "agpa-3e784",
+    "storage_bucket": "agpa-3e784.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:642652388867:android:1bc34753b1730e13fcd836",
+        "mobilesdk_app_id": "1:98331389428:android:784d4de8490373d2c19da1",
         "android_client_info": {
           "package_name": "ganabet.sporttime"
         }
       },
       "oauth_client": [
         {
-          "client_id": "642652388867-t8cvds0cd7n3btv8ddshra61jdusnva4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "ganabet.sporttime",
-            "certificate_hash": "2f4361b2490d7707d86d87e3a68fb4e5644c288d"
-          }
-        },
-        {
-          "client_id": "642652388867-a4ukeaio71qr2tp8ajiqsuq63catdv48.apps.googleusercontent.com",
+          "client_id": "98331389428-t0pcpksj8bcpnmr8hvepqoo9kg85tsku.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCkvmlr2eEAu9LEK5iYvT4CnCHDjdnmwfs"
+          "current_key": "AIzaSyC8piD2fag_b1S3b5srkhI-zMTKeVmmLQQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "642652388867-a4ukeaio71qr2tp8ajiqsuq63catdv48.apps.googleusercontent.com",
+              "client_id": "98331389428-t0pcpksj8bcpnmr8hvepqoo9kg85tsku.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
