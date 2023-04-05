@@ -11,6 +11,8 @@ public class Exercise {
         this.id = id;
         this.name = name;
         this.pic = pic;
+        this.sets = sets;
+        this.reps = reps;
     }
 
     public int getId() {

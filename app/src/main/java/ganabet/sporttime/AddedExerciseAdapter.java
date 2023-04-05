@@ -21,9 +21,11 @@ public class AddedExerciseAdapter extends RecyclerView.Adapter<AddedExerciseAdap
 
     private List<Exercise> mExercise;
     private Context parent;
-    public AddedExerciseAdapter(List<Exercise> exercise, Context parent){
+    private Boolean status;
+    public AddedExerciseAdapter(List<Exercise> exercise, Context parent, boolean historyStatus){
         mExercise =exercise;
         this.parent = parent;
+        this.status = historyStatus;
     }
 
 
@@ -43,6 +45,12 @@ public class AddedExerciseAdapter extends RecyclerView.Adapter<AddedExerciseAdap
         holder.bind(position);
         Exercise exerciseitem = mExercise.get(position);
         holder.nameExercise.setText(exerciseitem.getName());
+        holder.edReps.setText(exerciseitem.getReps());
+        holder.edSets.setText(exerciseitem.getSets());
+        if(status) {
+            holder.edSets.setEnabled(false);
+            holder.edReps.setEnabled(false);
+        }
         holder.exerciseImage.setImageResource(exerciseitem.getPic());
         holder.edSets.addTextChangedListener(new TextWatcher() {
             @Override

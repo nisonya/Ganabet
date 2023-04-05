@@ -13,17 +13,13 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -59,10 +55,6 @@ public class NewTrainingFragment extends Fragment {
     List<Integer> muscle_id= Base.getMuscle_id();
     List<Integer> exerForMuscle= Base.getId_musle_for_ex();
     AddedExerciseAdapter addedExerciseAdapter;
-    SharedPreferences sPrefID;
-    SharedPreferences.Editor ed;
-    private static final String FILE_NAME="ID_FILE_NAME";
-    private static final String ID_TRAIN_STR="TRAINING_ID";
 
 
     public NewTrainingFragment() {
@@ -143,7 +135,7 @@ public class NewTrainingFragment extends Fragment {
         rvAddedExercise = view.findViewById(R.id.addedExerciseRV);
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rvAddedExercise.setLayoutManager(layoutManager1);
-        addedExerciseAdapter = new AddedExerciseAdapter(addedExersise,getActivity());
+        addedExerciseAdapter = new AddedExerciseAdapter(addedExersise,getActivity(),false);
 
         //rv for exercise
         rvMucleAndExercise = view.findViewById(R.id.RVExerciseAndMuscles);
@@ -222,12 +214,11 @@ public class NewTrainingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 List<Exercise> finalExersise = addedExerciseAdapter.getData();
-
-                int int_id = getSharedPrefID();
-                System.out.println(getSharedPrefID());
+                tvExercise.setVisibility(View.INVISIBLE);
+                backbtn.setVisibility(View.INVISIBLE);
+                rvMucleAndExercise.setAdapter(musclesAdapter);
                 for(int i =0; i< finalExersise.size();i++){
                     Exercise exersiseItem = finalExersise.get(i);
-                    cv.put(DBHelper.KEY_TRAINING_ID, int_id);
                     cv.put(DBHelper.KEY_NAME_EXERSISE, exersiseItem.getName());
                     cv.put(DBHelper.KEY_MUSCLE_PIC, exersiseItem.getPic());
                     cv.put(DBHelper.KEY_SETS, exersiseItem.getSets());
@@ -235,11 +226,9 @@ public class NewTrainingFragment extends Fragment {
                     cv.put(DBHelper.KEY_DATE, dateView.getText().toString());
                     database.insert(DBHelper.TABLE_NAME, null, cv);
                 }
-                saveToSP(int_id+1);
                 addedExersise.clear();
                 rvAddedExercise.setAdapter(addedExerciseAdapter);
                 Toast.makeText(getActivity(),"Train added", Toast.LENGTH_LONG).show();
-                System.out.println(getSharedPrefID());
 
             }
         });
@@ -274,15 +263,5 @@ public class NewTrainingFragment extends Fragment {
         }
     }
     //получение id тренировки
-    public int getSharedPrefID(){
-        sPrefID = getActivity().getSharedPreferences(FILE_NAME,MODE_PRIVATE);
-        int train_id = sPrefID.getInt(ID_TRAIN_STR,1);
-        return train_id;
-    }
-    //сохранение id локально
-    public void saveToSP(int id){
-        ed = sPrefID.edit();
-        ed.putInt(ID_TRAIN_STR, id);
-        ed.apply();
-    }
+
 }

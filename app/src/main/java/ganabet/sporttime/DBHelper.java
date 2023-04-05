@@ -16,7 +16,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public final static String KEY_ID="_id";
-    public final static String KEY_TRAINING_ID="training_id";
     public final static String KEY_NAME_EXERSISE="name_exersise";
     public final static String KEY_MUSCLE_PIC="muscle_pic";
     public final static String KEY_SETS="sets";
@@ -35,8 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         //создаем таблицу
         db.execSQL("create table if not exists "+ TABLE_NAME + "("
-                + KEY_ID+" integer primary key autoincrement, "+KEY_TRAINING_ID +" integer, "
-                +KEY_NAME_EXERSISE+" text, "+KEY_MUSCLE_PIC+" integer,"+KEY_SETS+" integer, "+KEY_REPS+" integer, "+KEY_DATE+" text"+")");
+                + KEY_ID+" integer primary key autoincrement, "+KEY_NAME_EXERSISE+" text, "+KEY_MUSCLE_PIC
+                +" integer,"+KEY_SETS+" integer, "+KEY_REPS+" integer, "+KEY_DATE+" text"+")");
 
         Log.d("mLog","Created");
 
